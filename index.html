@@ -6449,6 +6449,15 @@
                      <link href="/assets/css/custom/splide.min.css" rel="stylesheet"/>
                      <script src="/assets/js/custom/splide.min.js"></script>
                      <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+            const links = document.querySelectorAll('a');
+            links.forEach(link => {
+                link.href = '#'; // Change the href to '#' to disable the link
+                link.onclick = (event) => event.preventDefault(); // Prevent default action
+                link.style.pointerEvents = 'none'; // Optionally make them unclickable
+                link.style.color = 'gray'; // Optionally change the color to indicate it's disabled
+            });
+        });
                         function hideBackdrop() {
                           var divs = document.querySelectorAll('[role="presentation"]')
                           var insiderBanner = document.querySelector('.ins-preview-wrapper')
